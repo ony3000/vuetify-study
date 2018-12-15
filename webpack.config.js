@@ -1,7 +1,18 @@
 const path = require('path');
+const webpack = require('webpack');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = {
+  mode: 'development',
+  devtool: 'eval-source-map',
+  devServer: {
+    compress: true,
+    contentBase: path.resolve(__dirname, 'src/static'),
+    hot: true,
+    overlay: true
+  },
   module: {
     rules: [
       {
@@ -68,6 +79,11 @@ module.exports = {
     extensions: ['*', '.js', '.vue', '.json']
   },
   plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new CleanWebpackPlugin(['dist']),
+    new HtmlWebpackPlugin({
+      template: 'src/templates/index.html'
+    }),
     new VueLoaderPlugin()
   ]
 };
