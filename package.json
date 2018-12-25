@@ -11,9 +11,11 @@
     "@mdi/font": "^3.2.89",
     "express": "^4.16.2",
     "socket.io": "^2.2.0",
+    "uuid": "^3.3.2",
     "vue": "^2.5.21",
     "vue-router": "^3.0.2",
-    "vuetify": "^1.3.14"
+    "vuetify": "^1.3.14",
+    "vuex": "^3.0.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.0",
