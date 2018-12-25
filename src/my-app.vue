@@ -1,18 +1,14 @@
 <template>
-    <v-app>
-        <v-navigation-drawer app></v-navigation-drawer>
-        <v-toolbar app></v-toolbar>
-        <v-content>
-            <v-container fluid>
-                <p>Hello Vuetify!</p>
-            </v-container>
-        </v-content>
-        <v-footer app></v-footer>
-    </v-app>
+    <default-layout></default-layout>
 </template>
 
 <script>
+import DefaultLayout from '@/layouts/default';
+
 export default {
     name: 'my-app',
+    components: {
+        DefaultLayout,
+    },
 };
 </script>
