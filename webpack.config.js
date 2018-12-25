@@ -3,15 +3,22 @@ const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const ChatServer = require('./chat-server');
+const constants = require('./src/assets/constants');
+const { DEVSERVER_PORT, WEBSOCKET_PORT } = constants;
 
 module.exports = {
   mode: 'development',
   devtool: 'eval-source-map',
   devServer: {
+    before: function (app, server) {
+      new ChatServer(WEBSOCKET_PORT);
+    },
     compress: true,
     contentBase: path.resolve(__dirname, 'src/static'),
     hot: true,
-    overlay: true
+    overlay: true,
+    port: DEVSERVER_PORT
   },
   module: {
     rules: [
@@ -82,7 +89,10 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
-      template: 'src/templates/index.html'
+      template: 'src/templates/index.html',
+      templateParameters: {
+        WEBSOCKET_PORT
+      }
     }),
     new VueLoaderPlugin()
   ]
