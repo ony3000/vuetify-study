@@ -2,18 +2,13 @@
     <v-app>
         <v-navigation-drawer app></v-navigation-drawer>
         <v-toolbar app></v-toolbar>
-        <index-page></index-page>
+        <router-view></router-view>
         <v-footer app></v-footer>
     </v-app>
 </template>
 
 <script>
-import IndexPage from '@/pages/index';
-
 export default {
     name: 'default-layout',
-    components: {
-        IndexPage,
-    },
 };
 </script>
