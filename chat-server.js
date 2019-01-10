@@ -9,6 +9,9 @@ class ChatServer {
       socket.on('disconnect', () => {
         console.log('User disconnected');
       });
+      socket.on('message', (message) => {
+        io.emit('broadcast', message);
+      });
     });
 
     http.listen(portNumber, () => {
