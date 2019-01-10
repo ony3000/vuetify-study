@@ -6,6 +6,9 @@ class ChatServer {
   constructor(portNumber = 3000) {
     io.on('connection', (socket) => {
       console.log('A user connected');
+      socket.on('disconnect', () => {
+        console.log('User disconnected');
+      });
     });
 
     http.listen(portNumber, () => {
