@@ -19,10 +19,13 @@ new Vue({
     render(h) {
         return h(MyApp);
     },
+    data: {
+        socket: null,
+    },
     mounted() {
         this.$nextTick(() => {
             console.log('Hello Vuetify!');
-            new ChatClient();
+            this.socket = new ChatClient();
         });
     },
 });
