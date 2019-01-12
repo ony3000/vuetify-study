@@ -89,10 +89,7 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
-      template: 'src/templates/index.html',
-      templateParameters: {
-        WEBSOCKET_PORT
-      }
+      template: 'src/templates/index.html'
     }),
     new VueLoaderPlugin()
   ]

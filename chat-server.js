@@ -1,6 +1,8 @@
 const app = require('express')();
 const http = require('http').Server(app);
-const io = require('socket.io')(http);
+const io = require('socket.io')(http, {
+  serveClient: false,
+});
 
 class ChatServer {
   constructor(portNumber = 3000) {

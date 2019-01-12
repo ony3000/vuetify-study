@@ -1,3 +1,4 @@
+const io = require('socket.io-client');
 const constants = require('@/assets/constants');
 const { WEBSOCKET_PORT } = constants;
 
