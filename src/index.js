@@ -5,6 +5,7 @@ import 'vuetify/dist/vuetify.min.css';
 import MyApp from '@/my-app';
 import ChatClient from '@/middleware/chat-client';
 import router from '@/router';
+import store from '@/store';
 
 Vue.use(Vuetify, {
     iconfont: 'mdi',
@@ -13,6 +14,7 @@ Vue.use(Vuetify, {
 new Vue({
     el: '#app',
     router,
+    store,
     components: {
         MyApp,
     },
