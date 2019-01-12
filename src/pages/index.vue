@@ -27,7 +27,7 @@ export default {
             let trimmedMessage = this.messageInput.trim();
 
             if (trimmedMessage) {
-                this.$root.socket.sendMessage(trimmedMessage);
+                this.$root.socket.emit('message', trimmedMessage);
                 this.messageInput = '';
             }
         },
