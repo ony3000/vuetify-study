@@ -3,10 +3,10 @@ const constants = require('@/assets/constants');
 const { WEBSOCKET_PORT } = constants;
 
 class ChatClient {
-    constructor() {
+    constructor(context) {
         const socket = io(`localhost:${WEBSOCKET_PORT}`);
         socket.on('broadcast', (message) => {
-            console.log(`Broadcasted: ${message}`);
+            context.commit('appendMessage', message);
         });
         return socket;
     }

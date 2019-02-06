@@ -7,15 +7,19 @@ Vue.use(Vuex);
 const store = new Vuex.Store({
     state: {
         socket: null,
+        messages: [],
     },
     getters: {
     },
     mutations: {
+        appendMessage(state, message) {
+            state.messages.push(message);
+        },
     },
     actions: {
-        openConnection({ state }) {
-            if (!state.socket) {
-                state.socket = new ChatClient();
+        openConnection(context) {
+            if (!context.state.socket) {
+                context.state.socket = new ChatClient(context);
             }
         },
         sendMessage({ state }, message) {
