@@ -3,7 +3,6 @@ import Vuetify from 'vuetify';
 import '@mdi/font/scss/materialdesignicons.scss';
 import 'vuetify/dist/vuetify.min.css';
 import MyApp from '@/my-app';
-import ChatClient from '@/middleware/chat-client';
 import router from '@/router';
 import store from '@/store';
 
@@ -21,13 +20,10 @@ new Vue({
     render(h) {
         return h(MyApp);
     },
-    data: {
-        socket: null,
-    },
     mounted() {
         this.$nextTick(() => {
             console.log('Hello Vuetify!');
-            this.socket = new ChatClient();
+            this.$store.dispatch('openConnection');
         });
     },
 });
